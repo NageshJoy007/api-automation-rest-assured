@@ -22,8 +22,9 @@ public class PostPutAndDeleteTest extends Base {
 
 		File schema = new File(System.getProperty("user.dir") + "/src/test/resources/schema/schema2.json");
 		Response response = given().contentType(ContentType.JSON).body(payload).when().post("/api/users").then().log()
-				.all().assertThat().statusCode(201).body(matchesJsonSchema(schema)).time(lessThan(2000L)).extract()
-				.response();
+				.all().assertThat().statusCode(201).body(matchesJsonSchema(schema)).time(lessThan(2000L))
+				.assertThat().header("Content-Length", Integer::parseInt, lessThan(1000))
+				.extract().response();
 		JsonPath jsp = new JsonPath(response.asString());
 		userName = jsp.getString("name");
 	}
