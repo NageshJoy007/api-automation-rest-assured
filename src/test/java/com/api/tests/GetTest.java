@@ -16,7 +16,7 @@ import static org.hamcrest.Matchers.*;
 import java.io.File;
 
 public class GetTest extends Base {
-	
+
 	ResponseSpecification resSpec = null;
 	RequestSpecification reqSpec = null;
 
@@ -73,8 +73,8 @@ public class GetTest extends Base {
 
 	@Test
 	public void getUser() {
-		reqSpec.when().get("/api/users/3").then().log().all().assertThat().statusCode(200)
-				.assertThat().body("data.email", equalTo("emma.wong@reqres.in"));
+		reqSpec.when().get("/api/users/3").then().log().all().assertThat().statusCode(200).assertThat()
+				.body("data.email", equalTo("emma.wong@reqres.in"));
 
 	}
 
@@ -86,7 +86,5 @@ public class GetTest extends Base {
 				.body(matchesJsonSchema(schema));
 
 	}
-	
-	
 
 }

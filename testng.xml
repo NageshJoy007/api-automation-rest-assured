@@ -5,6 +5,8 @@
     <classes>
       <class name="com.api.tests.GetTest"/>
       <class name="com.api.tests.PostPutAndDeleteTest"/>
+     <!--  <class name="com.api.tests.PostGetDeleteFileTest"/> -->
+      
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
